@@ -13,12 +13,19 @@ function App() {
     // console.log(myForm);
     setCharacters([...listOfCharacters, myForm]);
   }
+
+  const updateIsAlive = i => {
+    // this is where I update the isAlive status
+    // console.log(listOfCharacters[i]);
+    listOfCharacters[i].isAlive = !listOfCharacters[i].isAlive;
+    setCharacters([...listOfCharacters]);
+  }
   return (
     <div className="container-fluid">
       <h1 className="jumbotron">Heroes and Villains</h1>
       <div className="row">
         <Form newChar={addChar}/>
-        <Results myList={listOfCharacters}/>
+        <Results myList={listOfCharacters} updateStatus={updateIsAlive}/>
       </div>
     </div>
   );
